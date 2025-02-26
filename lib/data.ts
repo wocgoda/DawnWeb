@@ -107,5 +107,8 @@ export const skillsData = [
   "Kali Linux",
   "Linux",
   "Tailwind",
-  "vue3",
+  "Vue3",
+  "Shark",
+  "Qt",
+  "BurpSuite",
 ] as const;
