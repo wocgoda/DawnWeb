@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --line-color: #e5e7eb;
+}
+
+html.dark {
+  --line-color: rgba(255, 255, 255, 0.2);
+}
+
+.borderBlack {
+  @apply border border-black/10;
+}
+
+/* 移除之前的加载状态样式 */
+/* .loading {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.loaded {
+  opacity: 1;
+} */
