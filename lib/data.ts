@@ -51,7 +51,7 @@ export const experiencesData = [
     date: "2023 - 2024",
   },
   {
-    title: "求道者",
+    title: "求学者",
     location: "河南南阳",
     description:
       "我现在是一名“伪”全栈开发人员,我将继续学习不断尝试做出更多努力。",
