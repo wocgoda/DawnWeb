@@ -108,7 +108,7 @@ export const skillsData = [
   "Linux",
   "Tailwind",
   "Vue3",
-  "Shark",
+  "Wire Shark",
   "Qt",
   "BurpSuite",
 ] as const;
