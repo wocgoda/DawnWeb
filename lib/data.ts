@@ -62,10 +62,10 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Sky-takeaway",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
+      "这是一个较为完善的外卖小程序，基于 SpringBoot 构建，采用分模块开发，前后端分离，涵盖用户管理、商家管理、订单处理、商品管理、微信支付等功能模块",
+    tags: ["SpringBoot", "SpringMVC", "MyBatis", "Redis","WebSocket","​Vue.js","Element UI"],
     imageUrl: corpcommentImg,
   },
   {
@@ -111,4 +111,9 @@ export const skillsData = [
   "Wire Shark",
   "Qt",
   "BurpSuite",
+  "SpringBoot",
+  "MyBatis",
+  "Redis",
+  "SpringMVC",
+  "WebSocket"
 ] as const;
