@@ -56,7 +56,7 @@ export const experiencesData = [
     description:
       "我现在是一名“伪”全栈开发人员,我将继续学习不断尝试做出更多努力。",
     icon: React.createElement(FaReact),
-    date: "2023 - 现在",
+    date: "2024 - 现在",
   },
 ] as const;
 
@@ -64,15 +64,17 @@ export const projectsData = [
   {
     title: "Sky-takeaway",
     description:
-      "这是一个较为完善的外卖小程序，基于 SpringBoot 构建，采用分模块开发，前后端分离，涵盖用户管理、商家管理、订单处理、商品管理、微信支付等功能模块",
-    tags: ["SpringBoot", "SpringMVC", "MyBatis", "Redis","WebSocket","​Vue.js","Element UI"],
+      "一个功能完善的外卖小程序，基于 SpringBoot 构建，采用前后端分离和分模块架构，包含用户管理、商家管理、订单处理、商品管理、微信支付等核心功能。",
+    tags: [
+      "SpringBoot", "SpringMVC", "MyBatis", "Redis", "WebSocket", "Vue.js", "Element UI"
+    ],
     imageUrl: corpcommentImg,
   },
   {
-    title: "rmtDev",
+    title: "GPT3-LLM",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+      "高效轻量的大模型，借助 GPT-2/GPT-3 架构，仅用 400 亿 tokens 即在 HellaSwag 上追平 GPT-3 (124M) 准确率，训练效率提升近 10 倍。",
+    tags: ["Python", "LLM", "NLP"],
     imageUrl: rmtdevImg,
   },
   {
@@ -115,5 +117,6 @@ export const skillsData = [
   "MyBatis",
   "Redis",
   "SpringMVC",
-  "WebSocket"
+  "WebSocket",
+  "NLP"
 ] as const;
