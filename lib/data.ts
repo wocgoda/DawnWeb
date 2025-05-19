@@ -5,6 +5,7 @@ import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
+import { BsBriefcase } from "react-icons/bs";
 
 export const links = [
   {
@@ -35,32 +36,47 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "初学者",
+    title: "编程启蒙",
     location: "河南南阳",
     description:
-      "第一次接触到编程并开始学习，写出第一个程序（人机对战五子棋），并在算法竞赛拿下第一次奖项",
+      "第一次接触编程，独立完成了人机对战五子棋，并在算法竞赛中获得了第一个奖项，由此开启了编程之路。",
     icon: React.createElement(LuGraduationCap),
     date: "2023",
   },
   {
-    title: "略知一二",
+    title: "探索阶段",
     location: "河南南阳",
     description:
-      "搭建人生中第一个AI网站，用Flutter做出第一个跨平台应用，学习CTF相关知识，并开始接触到全栈开发",
+      "搭建了个人第一个 AI 网站，使用 Flutter 开发了跨平台应用，开始学习 CTF 与网络安全基础，并接触全栈开发。",
     icon: React.createElement(CgWorkAlt),
     date: "2023 - 2024",
   },
   {
-    title: "求学者",
+    title: "项目实战与深入学习",
     location: "河南南阳",
     description:
-      "我现在是一名“伪”全栈开发人员,我将继续学习不断尝试做出更多努力。",
+      "2024 至今，独立完成了 Sky-takeaway 外卖平台（基于 SpringBoot）与 GPT3-LLM 模型优化项目，涵盖前后端开发、大模型训练与部署等内容，全面提升了工程实践与理论能力。",
     icon: React.createElement(FaReact),
-    date: "2024 - 现在",
+    date: "2024 - 2025",
+  },  
+  {
+    title: "持续进阶",
+    location: "河南南阳",
+    description:
+      "目前正深入学习全栈开发与安全方向，持续迭代个人项目，不断拓展技术广度与深度。",
+    icon: React.createElement(BsBriefcase),
+    date: "2024 - 至今",
   },
 ] as const;
 
 export const projectsData = [
+  {
+    title: "一个简单的个人网站",
+    description:
+      "我开发的个人网站基于 Next.js 13，使用 App Router、Server Actions、Tailwind CSS 等构建，UI 全部纯手写，无任何模板或组件库。支持明暗模式、响应式设计与邮件发送，功能完整、体验流畅。",
+    tags: ["React", "Next.js", "TypeScript", "Tailwind", "Framer","React.Email","Resend"],
+    imageUrl: wordanalyticsImg,
+  },
   {
     title: "Sky-takeaway",
     description:
@@ -77,13 +93,7 @@ export const projectsData = [
     tags: ["Python", "LLM", "NLP"],
     imageUrl: rmtdevImg,
   },
-  {
-    title: "Word Analytics",
-    description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
-  },
+  
 ] as const;
 
 export const skillsData = [
