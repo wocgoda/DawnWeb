@@ -171,14 +171,14 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   return (
     <div
       ref={chatRef}
-      className={`fixed z-50 min-h-[30rem] max-h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col p-0 ${isMobile ? 'w-[95vw] max-w-xs' : 'w-80'}`}
+      className={`fixed z-50 ${isMobile ? 'min-h-[22rem] max-h-[50vh]' : 'min-h-[30rem] max-h-[60vh]'} bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col p-0 ${isMobile ? 'w-[95vw] max-w-xs' : 'w-80'}`}
       style={
         isMobile
           ? {
               left: '50%',
               transform: 'translateX(-50%)',
               top: 'auto',
-              bottom: '7rem',
+              bottom: '5rem',
               right: 'auto',
               boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.25)',
               cursor: 'default',
@@ -256,7 +256,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       </div>
 
       {/* 输入区 */}
-      <div className={`flex gap-2 px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 rounded-b-2xl ${isMobile ? 'pb-6' : ''}`}>
+      <div className={`flex gap-2 px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 rounded-b-2xl ${isMobile ? 'pb-4' : ''}`}>
         <input
           type="text"
           value={input}
