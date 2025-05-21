@@ -20,12 +20,22 @@ export async function POST(req: NextRequest) {
       );
     }
     
-    // 构建请求体
-    const requestBody = {
-      model: model || 'deepseek-chat',
-      messages,
-      stream,
-    };
+    // 根据模型类型构建请求体
+    let requestBody;
+    if (model === 'deepseek-reasoner') {
+      requestBody = {
+        model,
+        messages: messages.messages,
+        response_format: { type: "text" },
+        stream,
+      };
+    } else {
+      requestBody = {
+        model,
+        messages,
+        stream,
+      };
+    }
     
     // 获取请求的中断信号
     const { signal } = req;
@@ -38,7 +48,7 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify(requestBody),
-      signal, // 传递中断信号
+      signal,
     });
     
     // 检查响应状态
@@ -53,23 +63,18 @@ export async function POST(req: NextRequest) {
     
     // 如果是流式响应，直接返回流
     if (stream) {
-      // 创建一个新的可读流
       const newStream = new ReadableStream({
         async start(controller) {
-          // 处理从DeepSeek API返回的流
           const reader = response.body!.getReader();
           
           try {
             while (true) {
               const { done, value } = await reader.read();
               if (done) break;
-              
-              // 将数据块传递给新流
               controller.enqueue(value);
             }
           } catch (error) {
             console.error('流处理错误:', error);
-            // 如果是中断错误，发送一个特殊的数据块通知前端
             if ((error as any).name === 'AbortError') {
               const abortMessage = new TextEncoder().encode('data: [ABORTED]\n\n');
               controller.enqueue(abortMessage);
@@ -80,7 +85,6 @@ export async function POST(req: NextRequest) {
         },
       });
       
-      // 返回流式响应
       return new Response(newStream, {
         headers: {
           'Content-Type': 'text/event-stream',
@@ -96,11 +100,10 @@ export async function POST(req: NextRequest) {
   } catch (error: any) {
     console.error('API路由错误:', error);
     
-    // 如果是中断错误，返回特殊状态码
     if (error.name === 'AbortError') {
       return NextResponse.json(
         { error: '请求被取消' },
-        { status: 499 } // 499是nginx的标准状态码，表示客户端关闭了连接
+        { status: 499 }
       );
     }
     
