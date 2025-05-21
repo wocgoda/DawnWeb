@@ -105,7 +105,7 @@ export default function AIChat() {
       {/* 按钮 */}
       <button
         ref={buttonRef}
-        className="fixed bottom-[3.5rem] right-5 bg-white w-[3rem] h-[3rem] 
+        className="fixed bottom-[5.5rem] right-5 bg-white w-[3rem] h-[3rem] 
         bg-opacity-80 backdrop-blur-[0.5rem] border border-white 
         border-opacity-40 shadow-2xl rounded-full flex items-center 
         justify-center hover:scale-[1.15] active:scale-105 
