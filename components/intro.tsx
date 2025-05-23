@@ -58,7 +58,7 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">你好，我是 LAN</span>。
-        我是一位拥有<span className="font-bold">半年经验</span>的
+        我是一位拥有<span className="font-bold">一年经验</span>的
         <span className="font-bold">全栈开发人员</span>。
         我喜欢开发<span className="italic">网站和应用程序</span>。
         我注重于<span className="underline">开发和安全</span>。
