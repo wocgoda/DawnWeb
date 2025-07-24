@@ -1,6 +1,6 @@
 import { projectsData } from "@/lib/data";
 import { useRef } from "react";
-import { motion, useTransform ,useScroll } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import Image from 'next/image';
 
 
@@ -16,6 +16,22 @@ export default function Project({ title, description, tags, imageUrl }:
 
     const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
     const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+    
+    // 检查是否为Flutter项目
+    const isFlutterApp = title === "Weather App" || title === "Shop App";
+    
+    // 选择背景颜色
+    const getBgColor = () => {
+        if (!isFlutterApp) return '';
+        
+        if (title === "Weather App") {
+            return 'bg-gradient-to-b from-blue-900 via-blue-800 to-blue-900 dark:from-blue-800 dark:via-blue-700 dark:to-blue-900';
+        } else if (title === "Shop App") {
+            return 'bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-900 dark:from-emerald-800 dark:via-emerald-700 dark:to-emerald-900';
+        }
+        
+        return 'bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800';
+    };
 
     return (
         <motion.div
@@ -24,7 +40,7 @@ export default function Project({ title, description, tags, imageUrl }:
         scale: scaleProgess,
         opacity: opacityProgess,
       }}
-      className="group mb-3 sm:mb-8 last:mb-0 "
+      className="group mb-3 sm:mb-8 last:mb-0"
       >
     <section
     className="bg-gray-100 max-w-[42rem] border border-black/5 
@@ -46,20 +62,48 @@ export default function Project({ title, description, tags, imageUrl }:
                 ))}
             </ul>
         </div>
-        <Image src={imageUrl} alt="Project I worked on" quality={95}
-            className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-        transition 
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
-
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
-
-        group-even:right-[initial] group-even:-left-40"
+        <Image 
+            src={imageUrl} 
+            alt="Project I worked on" 
+            quality={95}
+            className="sm:hidden block mx-auto mt-6 w-full max-w-[20rem] rounded-t-lg shadow-md"
         />
+        
+        <div className={`absolute hidden sm:block overflow-hidden ${isFlutterApp ? 'top-6 -right-32 w-[20rem] h-[24rem]' : 'top-8 -right-40 w-[28.25rem] h-auto'} 
+            rounded-lg shadow-2xl
+            ${isFlutterApp ? 'group-even:right-[initial] group-even:-left-32' : 'group-even:right-[initial] group-even:-left-40'}
+            transition duration-300 ease-out
+            group-hover:scale-[1.04]
+            group-hover:-translate-x-3
+            group-hover:translate-y-3
+            group-hover:-rotate-2
+            group-even:group-hover:translate-x-3
+            group-even:group-hover:translate-y-3
+            group-even:group-hover:rotate-2
+            ${getBgColor()}`}>
+            <Image 
+                src={imageUrl} 
+                alt={isFlutterApp ? "Flutter App Screenshot" : "Project I worked on"}
+                fill={isFlutterApp ? true : false}
+                width={isFlutterApp ? undefined : 1000}
+                height={isFlutterApp ? undefined : 1000}
+                quality={95}
+                className={`
+                ${isFlutterApp ? 'object-contain p-4 w-full h-full opacity-95' : 'w-full h-auto'}`}
+            />
+            {isFlutterApp && (
+                <>
+                    {/* 顶部渐变 */}
+                    <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-black/30 to-transparent"></div>
+                    {/* 底部渐变 */}
+                    <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    {/* 左侧渐变 */}
+                    <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/30 to-transparent"></div>
+                    {/* 右侧渐变 */}
+                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black/30 to-transparent"></div>
+                </>
+            )}
+        </div>
     </section>
         </motion.div>
     );

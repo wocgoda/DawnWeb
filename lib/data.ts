@@ -6,6 +6,8 @@ import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 import { BsBriefcase } from "react-icons/bs";
+import flutter1Img from "@/public/flutter1.png";
+import flutter2Img from "@/public/flutter2.png";
 
 export const links = [
   {
@@ -92,6 +94,20 @@ export const projectsData = [
       "高效轻量的大模型，借助 GPT-2/GPT-3 架构，仅用 400 亿 tokens 即在 HellaSwag 上追平 GPT-3 (124M) 准确率，训练效率提升近 10 倍。",
     tags: ["Python", "LLM", "NLP"],
     imageUrl: rmtdevImg,
+  },
+  {
+    title: "Weather App",
+    description:
+      "一个基于 Flutter 的天气预报应用，支持多城市天气查询、实时天气信息展示、未来天气预报、湿度、风速、气压等功能。",
+    tags: ["Flutter", "Dart"],
+    imageUrl: flutter1Img,
+  },
+  {
+    title: "Shop App",
+    description:
+      "一个基于 Flutter 的电商应用，支持商品浏览、商品搜索、购物车管理等功能。",
+    tags: ["Flutter", "Dart"],
+    imageUrl: flutter2Img,
   },
   
 ] as const;
